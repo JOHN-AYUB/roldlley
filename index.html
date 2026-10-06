@@ -1,1 +1,3077 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roldley Pro — The Autonomous AI That Can Build Anything</title>
+<meta name="description" content="Roldley Pro transforms your ideas into fully functional digital products. Describe what you want — Roldley plans it, builds it, tests it, and deploys it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Google+Sans+Display:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<style>
+/* ============================================================
+   ROLDLEY PRO — DESIGN SYSTEM
+   Gemini-inspired: gradients, glass, soft surfaces
+   ============================================================ */
 
+:root {
+  /* Light Theme (Gemini Light) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fc;
+  --bg-tertiary: #f1f3f9;
+  --bg-elevated: rgba(255, 255, 255, 0.72);
+  --bg-glass: rgba(255, 255, 255, 0.65);
+
+  --text-primary: #1f1f1f;
+  --text-secondary: #444746;
+  --text-tertiary: #747775;
+  --text-inverse: #ffffff;
+
+  --accent-primary: #1a73e8;
+  --accent-secondary: #8b5cf6;
+  --accent-tertiary: #d96570;
+  --accent-success: #1e8e3e;
+  --accent-warning: #f9ab00;
+  --accent-danger: #d93025;
+
+  --gradient-hero: linear-gradient(74deg, #4285f4 0%, #9b72cb 22%, #d96570 44%, #d96570 58%, #f2a60c 82%, #4285f4 100%);
+  --gradient-card: linear-gradient(135deg, rgba(66,133,244,0.06), rgba(155,114,203,0.06));
+  --gradient-border: linear-gradient(135deg, #4285f4, #9b72cb, #d96570, #f2a60c);
+  --gradient-btn: linear-gradient(135deg, #1a73e8, #8b5cf6);
+  --gradient-text: linear-gradient(90deg, #4285f4, #9b72cb, #d96570);
+
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.14);
+  --shadow-sm: 0 1px 3px rgba(60, 64, 67, 0.08), 0 1px 2px rgba(60, 64, 67, 0.06);
+  --shadow-md: 0 4px 14px rgba(60, 64, 67, 0.12);
+  --shadow-lg: 0 12px 40px rgba(60, 64, 67, 0.16);
+  --shadow-glow: 0 0 60px rgba(66, 133, 244, 0.14);
+
+  --nav-bg: rgba(255, 255, 255, 0.78);
+  --code-bg: #f8f9fc;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --nav-height: 72px;
+  --container: 1240px;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme (Gemini Dark) */
+  --bg-primary: #131314;
+  --bg-secondary: #1e1f20;
+  --bg-tertiary: #282a2c;
+  --bg-elevated: rgba(32, 33, 36, 0.75);
+  --bg-glass: rgba(30, 31, 32, 0.68);
+
+  --text-primary: #e3e3e3;
+  --text-secondary: #c4c7c5;
+  --text-tertiary: #9aa0a6;
+  --text-inverse: #1f1f1f;
+
+  --accent-primary: #8ab4f8;
+  --accent-secondary: #c58af9;
+  --accent-tertiary: #f28b82;
+  --accent-success: #81c995;
+  --accent-warning: #fdd663;
+  --accent-danger: #f28b82;
+
+  --gradient-card: linear-gradient(135deg, rgba(138,180,248,0.07), rgba(197,138,249,0.07));
+  --gradient-btn: linear-gradient(135deg, #1a73e8, #7c3aed);
+
+  --border-color: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.55);
+  --shadow-glow: 0 0 60px rgba(138, 180, 248, 0.1);
+
+  --nav-bg: rgba(19, 19, 20, 0.78);
+  --code-bg: #1e1f20;
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Inter', 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.65;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input, textarea, select { font-family: inherit; font-size: inherit; color: inherit; }
+
+.material-symbols-rounded {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  vertical-align: middle;
+  user-select: none;
+}
+
+::selection {
+  background: rgba(66, 133, 244, 0.28);
+  color: var(--text-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 10px;
+  border: 2px solid var(--bg-secondary);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--accent-primary); }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Google Sans Display', 'Google Sans', 'Inter', sans-serif;
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+.animated-gradient-text {
+  background: var(--gradient-hero);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: heroGradient 8s linear infinite;
+}
+
+@keyframes heroGradient {
+  to { background-position: 300% center; }
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
+}
+
+.section {
+  padding: 96px 0;
+  position: relative;
+}
+
+.section-alt {
+  background: var(--bg-secondary);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 64px;
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent-primary);
+  background: var(--gradient-card);
+  border: 1px solid var(--border-color);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 20px;
+}
+
+.section-eyebrow .material-symbols-rounded { font-size: 18px; }
+
+.section-title {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  margin-bottom: 18px;
+}
+
+.section-subtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.nav.scrolled {
+  box-shadow: var(--shadow-md);
+  height: 64px;
+}
+
+.nav-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Google Sans Display', sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.logo-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: var(--gradient-hero);
+  background-size: 300% 300%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 800;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 14px rgba(66, 133, 244, 0.35);
+  animation: logoGradient 8s ease infinite;
+}
+
+@keyframes logoGradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.logo-mark .material-symbols-rounded {
+  font-size: 22px;
+  font-variation-settings: 'FILL' 1;
+}
+
+.nav-logo .pro-badge {
+  font-size: 0.62rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--gradient-btn);
+  color: #fff;
+  padding: 3px 8px;
+  border-radius: 6px;
+  margin-left: 2px;
+  align-self: flex-start;
+  margin-top: -4px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  justify-content: center;
+}
+
+.nav-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 9px 15px;
+  border-radius: var(--radius-pill);
+  transition: var(--transition);
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-tertiary);
+}
+
+.nav-link.active {
+  color: var(--accent-primary);
+  background: rgba(66, 133, 244, 0.1);
+}
+
+[data-theme="dark"] .nav-link.active {
+  background: rgba(138, 180, 248, 0.12);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.theme-toggle:hover {
+  transform: rotate(25deg) scale(1.06);
+  box-shadow: var(--shadow-glow);
+}
+
+.theme-toggle .material-symbols-rounded {
+  font-size: 22px;
+  position: absolute;
+  transition: var(--transition);
+}
+
+.theme-toggle .icon-sun { color: var(--accent-warning); }
+.theme-toggle .icon-moon { color: var(--accent-secondary); }
+
+[data-theme="light"] .icon-moon,
+[data-theme="dark"] .icon-sun {
+  opacity: 0;
+  transform: translateY(24px) rotate(90deg) scale(0.4);
+}
+
+[data-theme="light"] .icon-sun,
+[data-theme="dark"] .icon-moon {
+  opacity: 1;
+  transform: translateY(0) rotate(0) scale(1);
+}
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  padding: 0 11px;
+}
+
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile Nav */
+.mobile-nav {
+  position: fixed;
+  top: var(--nav-height);
+  left: 0;
+  right: 0;
+  background: var(--nav-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 24px 28px;
+  z-index: 999;
+  transform: translateY(-110%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: calc(100vh - var(--nav-height));
+  overflow-y: auto;
+}
+
+.mobile-nav.open { transform: translateY(0); }
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  margin-bottom: 2px;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: var(--gradient-card);
+  color: var(--accent-primary);
+}
+
+.mobile-nav-link .material-symbols-rounded { font-size: 22px; }
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: var(--transition);
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+
+.btn .material-symbols-rounded { font-size: 19px; }
+
+.btn-primary {
+  background: var(--gradient-btn);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(26, 115, 232, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(26, 115, 232, 0.45);
+  filter: brightness(1.08);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.btn-ghost:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.35) 50%, transparent 60%);
+  transform: translateX(-120%);
+  transition: transform 0.7s ease;
+}
+
+.btn-glow:hover::before { transform: translateX(120%); }
+
+.btn-sm { padding: 9px 20px; font-size: 0.85rem; }
+.btn-lg { padding: 16px 36px; font-size: 1.05rem; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: calc(var(--nav-height) + 60px) 0 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating gradient orbs (no grid lines) */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  pointer-events: none;
+  animation: orbFloat 14s ease-in-out infinite;
+}
+
+[data-theme="dark"] .orb { opacity: 0.22; }
+
+.orb-1 {
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, #4285f4, transparent 70%);
+  top: -140px; left: -140px;
+}
+.orb-2 {
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, #9b72cb, transparent 70%);
+  bottom: -120px; right: -100px;
+  animation-delay: -4s;
+}
+.orb-3 {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, #f2a60c, transparent 70%);
+  top: 40%; left: 60%;
+  animation-delay: -8s;
+}
+
+@keyframes orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, -30px) scale(1.08); }
+  66% { transform: translate(-30px, 30px) scale(0.94); }
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 20px 8px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-glass);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-badge .badge-dot {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--gradient-btn);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.hero-badge .badge-dot .material-symbols-rounded {
+  font-size: 14px; color: #fff;
+  font-variation-settings: 'FILL' 1;
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 5.6vw, 4.2rem);
+  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 560px;
+  margin-bottom: 36px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  padding: 0 32px;
+  border-left: 1px solid var(--border-color);
+}
+
+.hero-stat:first-child { padding-left: 0; border-left: none; }
+
+.hero-stat-num {
+  font-family: 'Google Sans Display', sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-stat-label {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Hero Terminal Card */
+.hero-visual {
+  position: relative;
+}
+
+.terminal {
+  background: var(--bg-elevated);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  overflow: hidden;
+  animation: terminalFloat 6s ease-in-out infinite;
+}
+
+@keyframes terminalFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.terminal-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+}
+.terminal-dot.red { background: #ff5f57; }
+.terminal-dot.yellow { background: #febc2e; }
+.terminal-dot.green { background: #28c840; }
+
+.terminal-title {
+  margin-left: auto;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-body {
+  padding: 22px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.9;
+  min-height: 320px;
+}
+
+.terminal-line { display: flex; gap: 10px; margin-bottom: 4px; }
+
+.terminal-prompt { color: var(--accent-success); font-weight: 600; }
+
+.terminal-user-input { color: var(--accent-primary); }
+
+.terminal-output { color: var(--text-secondary); }
+
+.terminal-status { display: inline-flex; align-items: center; gap: 8px; }
+
+.status-check { color: var(--accent-success); }
+.status-spinner {
+  display: inline-block;
+  width: 12px; height: 12px;
+  border: 2px solid var(--accent-primary);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.terminal-cursor {
+  display: inline-block;
+  width: 8px; height: 16px;
+  background: var(--accent-primary);
+  animation: blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.typing-dots span {
+  display: inline-block;
+  width: 5px; height: 5px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  margin-right: 3px;
+  animation: dotPulse 1.2s ease infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(0.8); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 1; }
+}
+
+/* ============================================================
+   PIPELINE SECTION
+   ============================================================ */
+
+.pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 56px;
+}
+
+.pipeline-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: var(--transition);
+  cursor: default;
+}
+
+.pipeline-step:hover {
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-3px);
+}
+
+.pipeline-step .step-icon {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--gradient-card);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--accent-primary);
+}
+
+.pipeline-step .step-icon .material-symbols-rounded { font-size: 16px; }
+
+.pipeline-arrow {
+  color: var(--text-tertiary);
+  font-size: 18px;
+}
+
+/* ============================================================
+   FEATURE CARDS
+   ============================================================ */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient-border);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: transparent;
+}
+
+.feature-card:hover::before { opacity: 1; }
+
+.feature-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 22px;
+  color: #fff;
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon .material-symbols-rounded {
+  font-size: 28px;
+  font-variation-settings: 'FILL' 1;
+}
+
+.fi-blue { background: linear-gradient(135deg, #4285f4, #1a73e8); }
+.fi-purple { background: linear-gradient(135deg, #9b72cb, #7c3aed); }
+.fi-red { background: linear-gradient(135deg, #d96570, #d93025); }
+.fi-amber { background: linear-gradient(135deg, #f2a60c, #e37400); }
+.fi-green { background: linear-gradient(135deg, #34a853, #1e8e3e); }
+.fi-teal { background: linear-gradient(135deg, #24c1e0, #008dc7); }
+
+.feature-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+}
+
+.feature-card .feature-tag {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-primary);
+  background: rgba(66, 133, 244, 0.1);
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+}
+
+/* ============================================================
+   AGENTS SECTION
+   ============================================================ */
+
+.agents-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.agent-tree {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.agent-tree::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(155, 114, 203, 0.18), transparent 70%);
+  border-radius: 50%;
+}
+
+.agent-tree-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+  font-family: 'Google Sans Display', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.agent-tree-header .material-symbols-rounded { color: var(--accent-secondary); }
+
+.tree-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  white-space: pre;
+}
+
+.tree-line:hover {
+  background: var(--gradient-card);
+  color: var(--text-primary);
+  transform: translateX(4px);
+}
+
+.tree-line.root { color: var(--text-primary); font-weight: 600; }
+.tree-line.ceo { color: var(--accent-secondary); font-weight: 600; }
+.tree-line .material-symbols-rounded { font-size: 16px; color: var(--accent-primary); }
+
+.agents-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.agent-item {
+  display: flex;
+  gap: 14px;
+  padding: 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  transition: var(--transition);
+}
+
+.agent-item:hover {
+  border-color: var(--accent-secondary);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-3px);
+}
+
+.agent-item-icon {
+  width: 42px; height: 42px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+}
+
+.agent-item-icon .material-symbols-rounded { font-size: 22px; }
+
+.agent-item h4 { font-size: 0.95rem; margin-bottom: 4px; }
+.agent-item p { font-size: 0.8rem; color: var(--text-tertiary); }
+
+/* ============================================================
+   CODE / DEMO SECTION
+   ============================================================ */
+
+.demo-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.code-window {
+  background: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.code-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 10px 14px 0;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.code-tab {
+  padding: 10px 18px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  border-radius: 10px 10px 0 0;
+  transition: var(--transition);
+  border-bottom: 2px solid transparent;
+}
+
+.code-tab.active {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+  background: var(--code-bg);
+}
+
+.code-content {
+  padding: 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  line-height: 1.85;
+  overflow-x: auto;
+  display: none;
+}
+
+.code-content.active { display: block; }
+
+.code-content .ln {
+  display: flex;
+  gap: 18px;
+}
+
+.code-content .line-num {
+  color: var(--text-tertiary);
+  opacity: 0.5;
+  user-select: none;
+  min-width: 22px;
+  text-align: right;
+}
+
+.tok-kw { color: #c58af9; font-weight: 600; }
+.tok-str { color: #81c995; }
+.tok-fn { color: #8ab4f8; }
+.tok-cm { color: var(--text-tertiary); font-style: italic; }
+.tok-num { color: #fdd663; }
+.tok-op { color: #f28b82; }
+.tok-type { color: #78d9ec; }
+
+.prompt-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.prompt-bubble {
+  align-self: flex-end;
+  max-width: 85%;
+  background: var(--gradient-btn);
+  color: #fff;
+  padding: 14px 20px;
+  border-radius: 20px 20px 4px 20px;
+  font-size: 0.92rem;
+  box-shadow: var(--shadow-md);
+}
+
+.response-card {
+  align-self: flex-start;
+  max-width: 92%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 20px 20px 20px 4px;
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.response-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.response-card-header .spark {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--gradient-hero);
+  display: flex; align-items: center; justify-content: center;
+}
+
+.response-card-header .spark .material-symbols-rounded {
+  font-size: 15px; color: #fff;
+  font-variation-settings: 'FILL' 1;
+}
+
+.response-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  padding: 5px 0;
+}
+
+.response-checklist .material-symbols-rounded {
+  font-size: 17px;
+  color: var(--accent-success);
+}
+
+/* ============================================================
+   WORKSPACE PREVIEW
+   ============================================================ */
+
+.workspace {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+}
+
+.workspace-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.workspace-url {
+  flex: 1;
+  max-width: 380px;
+  margin: 0 auto;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-pill);
+  padding: 7px 18px;
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  font-family: 'JetBrains Mono', monospace;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.workspace-url .material-symbols-rounded { font-size: 15px; color: var(--accent-success); }
+
+.workspace-body {
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  min-height: 420px;
+}
+
+.workspace-sidebar {
+  border-right: 1px solid var(--border-color);
+  padding: 18px 12px;
+  background: var(--bg-secondary);
+}
+
+.ws-sidebar-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  padding: 0 10px;
+  margin-bottom: 10px;
+}
+
+.ws-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.ws-nav-item:hover { background: var(--gradient-card); }
+.ws-nav-item.active {
+  background: var(--gradient-card);
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+.ws-nav-item .material-symbols-rounded { font-size: 18px; }
+
+.workspace-main {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ws-main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ws-main-title { font-size: 1.1rem; }
+
+.ws-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent-success);
+  background: rgba(30, 142, 62, 0.1);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+}
+
+.ws-status-pill .pulse-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent-success);
+  animation: pulse 1.6s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(30, 142, 62, 0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(30, 142, 62, 0); }
+}
+
+.ws-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.ws-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 18px;
+}
+
+.ws-card-label {
+  font-size: 0.72rem;
+  color: var(--text-tertiary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.ws-card-value {
+  font-family: 'Google Sans Display', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.ws-card-trend {
+  font-size: 0.72rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.trend-up { color: var(--accent-success); }
+.trend-down { color: var(--accent-danger); }
+.ws-card-trend .material-symbols-rounded { font-size: 14px; }
+
+.ws-chart {
+  flex: 1;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ws-chart-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--text-secondary);
+}
+
+.chart-bars {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  min-height: 130px;
+}
+
+.chart-bar {
+  flex: 1;
+  background: var(--gradient-btn);
+  border-radius: 6px 6px 2px 2px;
+  opacity: 0.85;
+  animation: barGrow 1.2s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+  transition: var(--transition);
+  position: relative;
+}
+
+.chart-bar:hover { opacity: 1; transform: scaleY(1.03); transform-origin: bottom; }
+
+.chart-bar:nth-child(1) { height: 38%; animation-delay: 0.05s; }
+.chart-bar:nth-child(2) { height: 56%; animation-delay: 0.1s; }
+.chart-bar:nth-child(3) { height: 44%; animation-delay: 0.15s; }
+.chart-bar:nth-child(4) { height: 70%; animation-delay: 0.2s; }
+.chart-bar:nth-child(5) { height: 58%; animation-delay: 0.25s; }
+.chart-bar:nth-child(6) { height: 82%; animation-delay: 0.3s; }
+.chart-bar:nth-child(7) { height: 64%; animation-delay: 0.35s; }
+.chart-bar:nth-child(8) { height: 92%; animation-delay: 0.4s; }
+.chart-bar:nth-child(9) { height: 74%; animation-delay: 0.45s; }
+.chart-bar:nth-child(10) { height: 100%; animation-delay: 0.5s; }
+
+@keyframes barGrow {
+  from { height: 0 !important; opacity: 0; }
+}
+
+/* ============================================================
+   LEVELS SECTION
+   ============================================================ */
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+.level-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 28px 22px;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+}
+
+.level-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.level-card.highlight {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+    var(--gradient-border) border-box;
+}
+
+.level-num {
+  width: 52px; height: 52px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Google Sans Display', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.level-card:nth-child(1) .level-num { background: linear-gradient(135deg, #34a853, #1e8e3e); }
+.level-card:nth-child(2) .level-num { background: linear-gradient(135deg, #24c1e0, #008dc7); }
+.level-card:nth-child(3) .level-num { background: linear-gradient(135deg, #4285f4, #1a73e8); }
+.level-card:nth-child(4) .level-num { background: linear-gradient(135deg, #9b72cb, #7c3aed); }
+.level-card:nth-child(5) .level-num { background: linear-gradient(135deg, #d96570, #d93025); }
+
+.level-card h4 { font-size: 1rem; margin-bottom: 8px; }
+.level-card p { font-size: 0.8rem; color: var(--text-tertiary); }
+
+.level-card .level-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-tertiary);
+  color: var(--text-tertiary);
+}
+
+.level-card.highlight .level-tag {
+  background: var(--gradient-btn);
+  color: #fff;
+}
+
+/* ============================================================
+   SECURITY / SAFETY SECTION
+   ============================================================ */
+
+.safety-layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.safety-card {
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  transition: var(--transition);
+}
+
+.safety-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+
+.safety-card .risk-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.risk-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+}
+
+.risk-low { background: rgba(30, 142, 62, 0.12); color: var(--accent-success); }
+.risk-medium { background: rgba(249, 171, 0, 0.14); color: var(--accent-warning); }
+.risk-high { background: rgba(217, 48, 37, 0.12); color: var(--accent-danger); }
+
+.safety-card h3 { font-size: 1.1rem; margin-bottom: 14px; }
+
+.safety-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  padding: 6px 0;
+}
+
+.safety-list .material-symbols-rounded {
+  font-size: 18px;
+  margin-top: 2px;
+}
+
+.sl-green .material-symbols-rounded { color: var(--accent-success); }
+.sl-amber .material-symbols-rounded { color: var(--accent-warning); }
+.sl-red .material-symbols-rounded { color: var(--accent-danger); }
+
+/* ============================================================
+   TIERS / PRICING
+   ============================================================ */
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  align-items: stretch;
+}
+
+.price-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 32px 26px;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+  position: relative;
+}
+
+.price-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.price-card.featured {
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(var(--bg-primary), var(--bg-primary)) padding-box,
+    var(--gradient-border) border-box;
+  box-shadow: var(--shadow-glow);
+}
+
+.price-flag {
+  position: absolute;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gradient-btn);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 16px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.price-name {
+  font-family: 'Google Sans Display', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.price-desc {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-bottom: 20px;
+  min-height: 40px;
+}
+
+.price-amount {
+  font-family: 'Google Sans Display', sans-serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.price-amount span {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+}
+
+.price-period {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
+  margin-bottom: 24px;
+}
+
+.price-features {
+  flex: 1;
+  margin-bottom: 26px;
+}
+
+.price-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  padding: 6px 0;
+}
+
+.price-features .material-symbols-rounded {
+  font-size: 17px;
+  color: var(--accent-success);
+  margin-top: 2px;
+}
+
+.price-features li.na {
+  color: var(--text-tertiary);
+  opacity: 0.55;
+}
+
+.price-features li.na .material-symbols-rounded {
+  color: var(--text-tertiary);
+}
+
+/* ============================================================
+   ROADMAP / TIMELINE
+   ============================================================ */
+
+.timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 26px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(180deg, #4285f4, #9b72cb, #d96570, #f2a60c);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 80px;
+  margin-bottom: 44px;
+}
+
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-dot {
+  position: absolute;
+  left: 12px;
+  top: 4px;
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+  border: 2.5px solid var(--accent-primary);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+}
+
+.timeline-dot::after {
+  content: '';
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--gradient-btn);
+}
+
+.timeline-phase {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-primary);
+  margin-bottom: 6px;
+}
+
+.timeline-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.timeline-item p {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  max-width: 620px;
+}
+
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.timeline-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+/* ============================================================
+   CTA SECTION
+   ============================================================ */
+
+.cta-section {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  background: var(--gradient-btn);
+  color: #fff;
+  text-align: center;
+  padding: 88px 40px;
+  margin: 0 24px;
+}
+
+.cta-section::before,
+.cta-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.35;
+}
+
+.cta-section::before {
+  width: 400px; height: 400px;
+  background: #9b72cb;
+  top: -180px; right: -100px;
+}
+
+.cta-section::after {
+  width: 340px; height: 340px;
+  background: #f2a60c;
+  bottom: -160px; left: -80px;
+}
+
+.cta-section h2 {
+  color: #fff;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-section p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.cta-btn {
+  position: relative;
+  z-index: 2;
+  background: #fff;
+  color: #1a73e8;
+  padding: 16px 42px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 72px 0 32px;
+  margin-top: 96px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 18px 0 24px;
+  max-width: 320px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social a {
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  background: var(--bg-primary);
+}
+
+.footer-social a:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+.footer-col h4 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  margin-bottom: 20px;
+}
+
+.footer-col ul li { margin-bottom: 12px; }
+
+.footer-col ul a {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-col ul a:hover {
+  color: var(--accent-primary);
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+}
+
+.footer-bottom-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-bottom-links a:hover { color: var(--accent-primary); }
+
+/* ============================================================
+   SCROLL TO TOP
+   ============================================================ */
+
+.scroll-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: var(--gradient-btn);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: var(--transition);
+  z-index: 900;
+}
+
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top:hover { transform: translateY(-4px); }
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1100px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .levels-grid { grid-template-columns: repeat(3, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 960px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+  .hero { min-height: auto; }
+  .hero-subtitle { max-width: 100%; }
+  .agents-layout, .demo-layout { grid-template-columns: 1fr; gap: 40px; }
+  .workspace-body { grid-template-columns: 1fr; }
+  .workspace-sidebar {
+    display: flex;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    padding: 12px;
+    gap: 6px;
+  }
+  .ws-sidebar-label { display: none; }
+  .ws-nav-item { white-space: nowrap; margin-bottom: 0; }
+  .safety-layout { grid-template-columns: 1fr; }
+  .section { padding: 72px 0; }
+}
+
+@media (max-width: 680px) {
+  html { font-size: 15px; }
+  .container { padding: 0 18px; }
+  .hero-title { font-size: 2.2rem; }
+  .hero-stat { padding: 0 18px; }
+  .hero-stat-num { font-size: 1.35rem; }
+  .levels-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .agents-list { grid-template-columns: 1fr; }
+  .ws-cards { grid-template-columns: 1fr; }
+  .pipeline { gap: 8px; }
+  .pipeline-arrow { display: none; }
+  .pipeline-step { font-size: 0.74rem; padding: 9px 14px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .hero-cta .btn { width: 100%; }
+  .terminal-body { min-height: 260px; font-size: 0.74rem; }
+  .cta-section { padding: 64px 24px; }
+  .timeline::before { left: 20px; }
+  .timeline-dot { left: 6px; }
+  .timeline-item { padding-left: 60px; }
+}
+
+@media (max-width: 420px) {
+  .levels-grid { grid-template-columns: 1fr; }
+  .hero-badge { font-size: 0.74rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">
+      <div class="logo-mark"><span class="material-symbols-rounded">auto_awesome</span></div>
+      <span>Roldley<span class="pro-badge">Pro</span></span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#pipeline" class="nav-link">Pipeline</a>
+      <a href="#features" class="nav-link">Features</a>
+      <a href="#agents" class="nav-link">AI Agents</a>
+      <a href="#workspace" class="nav-link">Workspace</a>
+      <a href="#levels" class="nav-link">Autonomy</a>
+      <a href="#safety" class="nav-link">Safety</a>
+      <a href="#pricing" class="nav-link">Pricing</a>
+      <a href="#roadmap" class="nav-link">Roadmap</a>
+    </div>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark and light mode">
+        <span class="material-symbols-rounded icon-sun">light_mode</span>
+        <span class="material-symbols-rounded icon-moon">dark_mode</span>
+      </button>
+      <a href="#pricing" class="btn btn-primary btn-sm btn-glow">
+        <span class="material-symbols-rounded">rocket_launch</span>
+        Get Started
+      </a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home" class="mobile-nav-link"><span class="material-symbols-rounded">home</span>Home</a>
+  <a href="#pipeline" class="mobile-nav-link"><span class="material-symbols-rounded">account_tree</span>Pipeline</a>
+  <a href="#features" class="mobile-nav-link"><span class="material-symbols-rounded">widgets</span>Features</a>
+  <a href="#agents" class="mobile-nav-link"><span class="material-symbols-rounded">groups</span>AI Agents</a>
+  <a href="#workspace" class="mobile-nav-link"><span class="material-symbols-rounded">space_dashboard</span>Workspace</a>
+  <a href="#levels" class="mobile-nav-link"><span class="material-symbols-rounded">trending_up</span>Autonomy Levels</a>
+  <a href="#safety" class="mobile-nav-link"><span class="material-symbols-rounded">security</span>Safety</a>
+  <a href="#pricing" class="mobile-nav-link"><span class="material-symbols-rounded">payments</span>Pricing</a>
+  <a href="#roadmap" class="mobile-nav-link"><span class="material-symbols-rounded">map</span>Roadmap</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="home">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="badge-dot"><span class="material-symbols-rounded">auto_awesome</span></span>
+          Next-Generation Autonomous AI Engineering
+        </div>
+
+        <h1 class="hero-title">
+          The Autonomous AI That Can <span class="animated-gradient-text">Build Anything</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Describe what you want. Roldley Pro plans it, builds it, tests it, improves it,
+          and helps you launch it — from a single sentence to a fully deployed product.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#workspace" class="btn btn-primary btn-lg btn-glow">
+            <span class="material-symbols-rounded">bolt</span>
+            Start Building Free
+          </a>
+          <a href="#pipeline" class="btn btn-ghost btn-lg">
+            <span class="material-symbols-rounded">play_circle</span>
+            See How It Works
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="40" data-suffix="+">0+</div>
+            <div class="hero-stat-label">Languages</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="12" data-suffix="">0</div>
+            <div class="hero-stat-label">AI Agents</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="7" data-suffix="">0</div>
+            <div class="hero-stat-label">Test Layers</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num" data-count="24" data-suffix="/7">0/7</div>
+            <div class="hero-stat-label">Autonomous Ops</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">roldley — session</span>
+          </div>
+          <div class="terminal-body" id="terminalBody">
+            <div class="terminal-line">
+              <span class="terminal-prompt">❯</span>
+              <span class="terminal-user-input">"Build a marketplace for Kenyan farmers with AI crop recommendations and mobile payments."</span>
+            </div>
+            <div class="terminal-line"><span class="terminal-output status-check">✓</span><span class="terminal-output">Requirements understood — 24 features identified</span></div>
+            <div class="terminal-line"><span class="terminal-output status-check">✓</span><span class="terminal-output">Architecture designed — Next.js + FastAPI + PostgreSQL</span></div>
+            <div class="terminal-line"><span class="terminal-output status-check">✓</span><span class="terminal-output">Database schema created — 18 tables, 42 relations</span></div>
+            <div class="terminal-line"><span class="terminal-output status-check">✓</span><span class="terminal-output">UI generated — 34 responsive components</span></div>
+            <div class="terminal-line"><span class="terminal-output status-check">✓</span><span class="terminal-output">Backend services built — 28 API endpoints</span></div>
+            <div class="terminal-line"><span class="terminal-output"><span class="status-spinner"></span>&nbsp;Running automated tests <span class="typing-dots"><span></span><span></span><span></span></span></span></div>
+            <div class="terminal-line" style="margin-top:14px;">
+              <span class="terminal-output">Roldley is thinking<span class="typing-dots"><span></span><span></span><span></span></span> <span class="terminal-cursor"></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PIPELINE ================= -->
+<section class="section section-alt" id="pipeline">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow"><span class="material-symbols-rounded">account_tree</span>Creation Pipeline</span>
+      <h2 class="section-title">From <span class="gradient-text">Idea</span> to Production</h2>
+      <p class="section-subtitle">
+        One continuous, intelligent workflow. Roldley handles every stage — and loops back
+        automatically whenever something needs fixing.
+      </p>
+    </div>
+
+    <div class="pipeline reveal">
+      <div class="pipeline-step"><span class="step-icon"><span class="material-symbols-rounded">lightbulb</span></span>Idea</div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step"><span class="step-icon"><span class="material-symbols-rounded">description</span></span>Spec</div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step"><span class="step-icon"><span class="material-symbols-rounded">architecture</span></span>Architecture</div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step"><span class="step-icon"><span class="material-symbols-rounded">palette</span></span>Design</div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step"><span class="step-icon"><span class="material-symbols-rounded">code</span></span>Code</div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step"><span class="step-icon"><span class="material-symbols-rounded">science</span></span>Test</div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step"><span class="step-icon"><span class="material-symbols-rounded">build</span></span>Fix</div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step"><span class="step-icon"><span class="material-symbols-rounded">rocket_launch</span></span>Deploy</div>
+      <span class="pipeline-arrow">→</span>
+      <div class="pipeline-step"><span class="step-icon"><span class="material-symbols-rounded">monitoring</span></span>Improve</div>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon fi-blue"><span class="material-symbols-rounded">psychology</span></div>
+        <h3>Understanding Engine</h3>
+        <p>Natural language in, precise requirements out. Roldley interprets your intent, asks smart clarifying questions, and produces a complete product specification.</p>
+        <span class="feature-tag">Stage 01–02</span>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon fi-purple"><span class="material-symbols-rounded">schema</span></div>
+        <h3>Architecture & Design</h3>
+        <p>The Architect Agent selects the optimal stack, defines service boundaries, and the UX Agent generates design systems, wireframes, and accessible layouts.</p>
+        <span class="feature-tag">Stage 03–04</span>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon fi-teal"><span class="material-symbols-rounded">code_blocks</span></div>
+        <h3>Code Generation</h3>
+        <p>Frontend, backend, database, and APIs generated together — with migrations, indexes, authentication, and background jobs wired up correctly from day one.</p>
+        <span class="feature-tag">Stage 05–08</span>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon fi-green"><span class="material-symbols-rounded">verified</span></div>
+        <h3>Test & Debug Loop</h3>
+        <p>Seven layers of automated testing, plus AI-powered debugging. Errors are analyzed, patched, rebuilt, and retested — without you touching a line.</p>
+        <span class="feature-tag">Stage 09–13</span>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon fi-amber"><span class="material-symbols-rounded">cloud_upload</span></div>
+        <h3>Deploy & Monitor</h3>
+        <p>Staging → security scan → approval → production. Then Roldley keeps watching: errors, latency, database health, and security alerts, around the clock.</p>
+        <span class="feature-tag">Stage 14–16</span>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon fi-red"><span class="material-symbols-rounded">cyclone</span></div>
+        <h3>Continuous Improvement</h3>
+        <p>Every deploy makes the project smarter. Roldley remembers decisions, learns from failures, and proposes optimizations as your product grows.</p>
+        <span class="feature-tag">Always On</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURES ================= -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow"><span class="material-symbols-rounded">widgets</span>Platform Features</span>
+      <h2 class="section-title">Everything You Need. <span class="gradient-text">Nothing You Don't.</span></h2>
+      <p class="section-subtitle">
+        Not a chatbot that writes code — a complete AI software-production system.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon fi-blue"><span class="material-symbols-rounded">forum</span></div>
+        <h3>Natural Language Development</h3>
+        <p>No need to know React, SQL, Docker, or Kubernetes. Describe your product the way you'd describe it to a friend — Roldley handles the technology.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon fi-purple"><span class="material-symbols-rounded">hub</span></div>
+        <h3>Project Knowledge Graph</h3>
+        <p>A persistent memory of users, requirements, components, decisions, and versions — so Roldley understands your project far beyond any single conversation.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon fi-green"><span class="material-symbols-rounded">visibility</span></div>
+        <h3>Visual Testing</h3>
+        <p>Browser automation and computer vision inspect Roldley's own interfaces — catching broken layouts, overlapping elements, and responsiveness problems.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon fi-amber"><span class="material-symbols-rounded">memory</span></div>
+        <h3>AI Project Memory</h3>
+        <p>Architectural decisions are recorded with reasons. No contradictory choices, no re-litigating the same decisions every session.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon fi-teal"><span class="material-symbols-rounded">folder_open</span></div>
+        <h3>Repository Intelligence</h3>
+        <p>Upload an existing codebase. Roldley maps the architecture, detects technical debt, and can propose a full modernization plan.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon fi-red"><span class="material-symbols-rounded">bug_report</span></div>
+        <h3>Self-Debugging</h3>
+        <p>Build fails? Roldley reads the error, locates the cause, generates a patch, rebuilds, and retests — autonomously, until it's green.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon fi-purple"><span class="material-symbols-rounded">alt_route</span></div>
+        <h3>Smart Model Router</h3>
+        <p>Coding models for code, reasoning models for architecture, vision models for UI. The right model for every task keeps quality high and costs low.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon fi-green"><span class="material-symbols-rounded">history</span></div>
+        <h3>Git & Version Recovery</h3>
+        <p>Branches, commits, PRs, and clean diffs — every major AI action is reversible. Roldley never silently destroys working code.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon fi-blue"><span class="material-symbols-rounded">extension</span></div>
+        <h3>Roldley API</h3>
+        <p>Integrate autonomous building into your own systems: create projects, trigger builds, run tests, and deploy — all through a clean REST API.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AGENTS ================= -->
+<section class="section section-alt" id="agents">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow"><span class="material-symbols-rounded">groups</span>Multi-Agent Architecture</span>
+      <h2 class="section-title">An <span class="gradient-text">AI Engineering Team</span> in a Single Platform</h2>
+      <p class="section-subtitle">
+        Instead of one giant model doing everything, Roldley orchestrates specialized agents
+        that collaborate through a shared project context.
+      </p>
+    </div>
+
+    <div class="agents-layout">
+      <div class="agent-tree reveal">
+        <div class="agent-tree-header">
+          <span class="material-symbols-rounded">account_tree</span>
+          Agent Hierarchy
+        </div>
+        <div class="tree-line root"><span class="material-symbols-rounded">auto_awesome</span>🚀 Roldley Pro</div>
+        <div class="tree-line ceo">└─ 👔 CEO / Planning Agent</div>
+        <div class="tree-line">   ├─ 📋 Product Manager Agent</div>
+        <div class="tree-line">   ├─ 🏛️ Architect Agent</div>
+        <div class="tree-line">   ├─ 🎨 UX / Design Agent</div>
+        <div class="tree-line">   ├─ ⚛️ Frontend Agent</div>
+        <div class="tree-line">   ├─ ⚙️ Backend Agent</div>
+        <div class="tree-line">   ├─ 🗄️ Database Agent</div>
+        <div class="tree-line">   ├─ 🧠 AI/ML Agent</div>
+        <div class="tree-line">   ├─ 🔒 Security Agent</div>
+        <div class="tree-line">   ├─ 🧪 Testing Agent</div>
+        <div class="tree-line">   ├─ ☁️ DevOps Agent</div>
+        <div class="tree-line">   ├─ 📚 Documentation Agent</div>
+        <div class="tree-line">   └─ 🔬 Research Agent</div>
+      </div>
+
+      <div class="agents-list">
+        <div class="agent-item reveal">
+          <div class="agent-item-icon fi-purple"><span class="material-symbols-rounded">architecture</span></div>
+          <div><h4>Architect Agent</h4><p>System design, tech selection, scalability</p></div>
+        </div>
+        <div class="agent-item reveal reveal-delay-1">
+          <div class="agent-item-icon fi-red"><span class="material-symbols-rounded">palette</span></div>
+          <div><h4>UI Agent</h4><p>Wireframes, components, design systems</p></div>
+        </div>
+        <div class="agent-item reveal reveal-delay-2">
+          <div class="agent-item-icon fi-blue"><span class="material-symbols-rounded">web</span></div>
+          <div><h4>Frontend Agent</h4><p>Pages, state, forms, navigation</p></div>
+        </div>
+        <div class="agent-item reveal reveal-delay-3">
+          <div class="agent-item-icon fi-green"><span class="material-symbols-rounded">dns</span></div>
+          <div><h4>Backend Agent</h4><p>APIs, business logic, auth, jobs</p></div>
+        </div>
+        <div class="agent-item reveal">
+          <div class="agent-item-icon fi-teal"><span class="material-symbols-rounded">table_chart</span></div>
+          <div><h4>Database Agent</h4><p>Schemas, migrations, indexes, queries</p></div>
+        </div>
+        <div class="agent-item reveal reveal-delay-1">
+          <div class="agent-item-icon fi-amber"><span class="material-symbols-rounded">science</span></div>
+          <div><h4>Testing Agent</h4><p>Unit, integration, E2E & regression</p></div>
+        </div>
+        <div class="agent-item reveal reveal-delay-2">
+          <div class="agent-item-icon fi-red"><span class="material-symbols-rounded">shield_lock</span></div>
+          <div><h4>Security Agent</h4><p>Auth, injection, secrets, API safety</p></div>
+        </div>
+        <div class="agent-item reveal reveal-delay-3">
+          <div class="agent-item-icon fi-blue"><span class="material-symbols-rounded">cloud</span></div>
+          <div><h4>DevOps Agent</h4><p>CI/CD, containers, deployment, scaling</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DEMO / CODE ================= -->
+<section class="section" id="demo">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow"><span class="material-symbols-rounded">chat</span>Natural Language Development</span>
+      <h2 class="section-title">You Describe. <span class="gradient-text">Roldley Delivers.</span></h2>
+      <p class="section-subtitle">Real conversation. Real code. Real products.</p>
+    </div>
+
+    <div class="demo-layout">
+      <div class="prompt-demo reveal">
+        <div class="prompt-bubble">
+          Build a platform where farmers can upload their farm location, receive weather
+          predictions, get crop recommendations and sell their produce.
+        </div>
+        <div class="response-card">
+          <div class="response-card-header">
+            <span class="spark"><span class="material-symbols-rounded">auto_awesome</span></span>
+            Roldley Pro — Plan Generated
+          </div>
+          <ul class="response-checklist">
+            <li><span class="material-symbols-rounded">check_circle</span>Authentication & Farmer Profiles</li>
+            <li><span class="material-symbols-rounded">check_circle</span>Geolocation & Farm Management</li>
+            <li><span class="material-symbols-rounded">check_circle</span>Weather API Integration</li>
+            <li><span class="material-symbols-rounded">check_circle</span>AI Crop Recommendation Engine</li>
+            <li><span class="material-symbols-rounded">check_circle</span>Marketplace & Mobile Payments</li>
+            <li><span class="material-symbols-rounded">check_circle</span>Notifications & Admin Dashboard</li>
+            <li><span class="material-symbols-rounded">check_circle</span>Analytics & AI Assistant</li>
+          </ul>
+        </div>
+        <div class="prompt-bubble" style="background: var(--bg-tertiary); color: var(--text-primary);">
+          Looks great — approve and start building. 🚜
+        </div>
+      </div>
+
+      <div class="code-window reveal reveal-delay-1">
+        <div class="code-tabs">
+          <button class="code-tab active" data-tab="js">app.js</button>
+          <button class="code-tab" data-tab="py">recommend.py</button>
+          <button class="code-tab" data-tab="sql">schema.sql</button>
+          <button class="code-tab" data-tab="tf">main.tf</button>
+        </div>
+
+        <div class="code-content active" id="tab-js">
+<pre style="margin:0; font-family:inherit;"><code><span class="ln"><span class="line-num">1</span><span><span class="tok-cm">// Generated by Roldley Pro — Marketplace Service</span></span></span>
+<span class="ln"><span class="line-num">2</span><span><span class="tok-kw">import</span> {' express, middleware '} <span class="tok-kw">from</span> <span class="tok-str">'./core'</span>;</span></span>
+<span class="ln"><span class="line-num">3</span><span><span class="tok-kw">import</span> {' CropEngine '} <span class="tok-kw">from</span> <span class="tok-str">'@roldley/ai'</span>;</span></span>
+<span class="ln"><span class="line-num">4</span><span></span></span>
+<span class="ln"><span class="line-num">5</span><span><span class="tok-kw">const</span> app = <span class="tok-fn">express</span>();</span></span>
+<span class="ln"><span class="line-num">6</span><span></span></span>
+<span class="ln"><span class="line-num">7</span><span>app.<span class="tok-fn">use</span>(middleware.<span class="tok-fn">auth</span>({' jwt: true '}));</span></span>
+<span class="ln"><span class="line-num">8</span><span></span></span>
+<span class="ln"><span class="line-num">9</span><span>app.<span class="tok-fn">post</span>(<span class="tok-str">'/api/farms'</span>, <span class="tok-kw">async</span> (req, res) {'</span></span>
+<span class="ln"><span class="line-num">10</span><span>  <span class="tok-kw">const</span> farm = <span class="tok-kw">await</span> db.farms.<span class="tok-fn">create</span>({'</span></span>
+<span class="ln"><span class="line-num">11</span><span>    ownerId: req.user.id,</span></span>
+<span class="ln"><span class="line-num">12</span><span>    location: req.body.location,   <span class="tok-cm">// GeoJSON point</span></span></span>
+<span class="ln"><span class="line-num">13</span><span>    sizeHectares: req.body.size,</span></span>
+<span class="ln"><span class="line-num">14</span><span>  '});</span></span>
+<span class="ln"><span class="line-num">15</span><span></span></span>
+<span class="ln"><span class="line-num">16</span><span>  <span class="tok-kw">const</span> forecast = <span class="tok-kw">await</span> weather.<span class="tok-fn">forecast</span>(farm);</span></span>
+<span class="ln"><span class="line-num">17</span><span>  <span class="tok-kw">const</span> crops = <span class="tok-kw">await</span> CropEngine.<span class="tok-fn">recommend</span>({'</span></span>
+<span class="ln"><span class="line-num">18</span><span>    soil: farm.soilProfile,</span></span>
+<span class="ln"><span class="line-num">19</span><span>    climate: forecast.seasonal,</span></span>
+<span class="ln"><span class="line-num">20</span><span>  '});</span></span>
+<span class="ln"><span class="line-num">21</span><span></span></span>
+<span class="ln"><span class="line-num">22</span><span>  res.<span class="tok-fn">json</span>(' farm, forecast, crops ');</span></span>
+<span class="ln"><span class="line-num">23</span><span>'});</span></span></code></pre>
+        </div>
+
+        <div class="code-content" id="tab-py">
+<pre style="margin:0; font-family:inherit;"><code><span class="ln"><span class="line-num">1</span><span><span class="tok-cm"># Generated by Roldley Pro — AI/ML Agent</span></span></span>
+<span class="ln"><span class="line-num">2</span><span><span class="tok-kw">from</span> roldley.ai <span class="tok-kw">import</span> InferenceEngine, ModelRouter</span></span>
+<span class="ln"><span class="line-num">3</span><span><span class="tok-kw">from</span> dataclasses <span class="tok-kw">import</span> dataclass</span></span>
+<span class="ln"><span class="line-num">4</span><span></span></span>
+<span class="ln"><span class="line-num">5</span><span><span class="tok-kw">@dataclass</span></span></span>
+<span class="ln"><span class="line-num">6</span><span><span class="tok-kw">class</span> <span class="tok-type">SoilProfile</span>:</span></span>
+<span class="ln"><span class="line-num">7</span><span>    ph: <span class="tok-type">float</span></span></span>
+<span class="ln"><span class="line-num">8</span><span>    nitrogen: <span class="tok-type">float</span></span></span>
+<span class="ln"><span class="line-num">9</span><span>    rainfall_mm: <span class="tok-type">float</span></span></span>
+<span class="ln"><span class="line-num">10</span><span></span></span>
+<span class="ln"><span class="line-num">11</span><span><span class="tok-kw">class</span> <span class="tok-type">CropRecommender</span>:</span></span>
+<span class="ln"><span class="line-num">12</span><span>    <span class="tok-kw">def</span> <span class="tok-fn">__init__</span>(self):</span></span>
+<span class="ln"><span class="line-num">13</span><span>        self.router = ModelRouter.<span class="tok-fn">for_task</span>(<span class="tok-str">"agronomy"</span>)</span></span>
+<span class="ln"><span class="line-num">14</span><span>        self.engine = InferenceEngine(self.router)</span></span>
+<span class="ln"><span class="line-num">15</span><span></span></span>
+<span class="ln"><span class="line-num">16</span><span>    <span class="tok-kw">async def</span> <span class="tok-fn">recommend</span>(self, soil: SoilProfile):</span></span>
+<span class="ln"><span class="line-num">17</span><span>        result = <span class="tok-kw">await</span> self.engine.<span class="tok-fn">run</span>(</span></span>
+<span class="ln"><span class="line-num">18</span><span>            model=<span class="tok-str">"crop-suitability-v3"</span>,</span></span>
+<span class="ln"><span class="line-num">19</span><span>            inputs=soil,</span></span>
+<span class="ln"><span class="line-num">20</span><span>            top_k=<span class="tok-num">5</span>,</span></span>
+<span class="ln"><span class="line-num">21</span><span>        )</span></span>
+<span class="ln"><span class="line-num">22</span><span>        <span class="tok-kw">return</span> result.<span class="tok-fn">ranked</span>()  <span class="tok-cm"># best crops first</span></span></span></code></pre>
+        </div>
+
+        <div class="code-content" id="tab-sql">
+<pre style="margin:0; font-family:inherit;"><code><span class="ln"><span class="line-num">1</span><span><span class="tok-cm">-- Generated by Roldley Pro — Database Agent</span></span></span>
+<span class="ln"><span class="line-num">2</span><span><span class="tok-kw">CREATE TABLE</span> farmers (</span></span>
+<span class="ln"><span class="line-num">3</span><span>  id          UUID <span class="tok-kw">PRIMARY KEY DEFAULT</span> gen_random_uuid(),</span></span>
+<span class="ln"><span class="line-num">4</span><span>  name        <span class="tok-type">TEXT</span> <span class="tok-kw">NOT NULL</span>,</span></span>
+<span class="ln"><span class="line-num">5</span><span>  phone       <span class="tok-type">TEXT</span> <span class="tok-kw">UNIQUE</span>,</span></span>
+<span class="ln"><span class="line-num">6</span><span>  created_at  TIMESTAMPTZ <span class="tok-kw">DEFAULT</span> now()</span></span>
+<span class="ln"><span class="line-num">7</span><span>);</span></span>
+<span class="ln"><span class="line-num">8</span><span></span></span>
+<span class="ln"><span class="line-num">9</span><span><span class="tok-kw">CREATE TABLE</span> farms (</span></span>
+<span class="ln"><span class="line-num">10</span><span>  id          UUID <span class="tok-kw">PRIMARY KEY DEFAULT</span> gen_random_uuid(),</span></span>
+<span class="ln"><span class="line-num">11</span><span>  farmer_id   UUID <span class="tok-kw">REFERENCES</span> farmers(id) <span class="tok-kw">ON DELETE CASCADE</span>,</span></span>
+<span class="ln"><span class="line-num">12</span><span>  location    GEOGRAPHY(POINT, <span class="tok-num">4326</span>) <span class="tok-kw">NOT NULL</span>,</span></span>
+<span class="ln"><span class="line-num">13</span><span>  soil_ph     <span class="tok-type">NUMERIC</span>(<span class="tok-num">4</span>,<span class="tok-num">2</span>),</span></span>
+<span class="ln"><span class="line-num">14</span><span>  hectares    <span class="tok-type">NUMERIC</span>(<span class="tok-num">8</span>,<span class="tok-num">2</span>)</span></span>
+<span class="ln"><span class="line-num">15</span><span>);</span></span>
+<span class="ln"><span class="line-num">16</span><span></span></span>
+<span class="ln"><span class="line-num">17</span><span><span class="tok-kw">CREATE INDEX</span> idx_farms_location <span class="tok-kw">ON</span> farms <span class="tok-kw">USING</span> GIST(location);</span></span></code></pre>
+        </div>
+
+        <div class="code-content" id="tab-tf">
+<pre style="margin:0; font-family:inherit;"><code><span class="ln"><span class="line-num">1</span><span><span class="tok-cm"># Generated by Roldley Pro — DevOps Agent</span></span></span>
+<span class="ln"><span class="line-num">2</span><span><span class="tok-kw">resource</span> <span class="tok-str">"google_cloud_run_service"</span> <span class="tok-str">"marketplace"</span> {'</span></span>
+<span class="ln"><span class="line-num">3</span><span>  name     = <span class="tok-str">"roldley-farm-market"</span></span></span>
+<span class="ln"><span class="line-num">4</span><span>  location = <span class="tok-str">"africa-south1"</span></span></span>
+<span class="ln"><span class="line-num">5</span><span></span></span>
+<span class="ln"><span class="line-num">6</span><span>  template {'</span></span>
+<span class="ln"><span class="line-num">7</span><span>    spec {'</span></span>
+<span class="ln"><span class="line-num">8</span><span>      containers {'</span></span>
+<span class="ln"><span class="line-num">9</span><span>        image = <span class="tok-str">"gcr.io/roldley/market:latest"</span></span></span>
+<span class="ln"><span class="line-num">10</span><span>        resources {'</span></span>
+<span class="ln"><span class="line-num">11</span><span>          limits = {'</span></span>
+<span class="ln"><span class="line-num">12</span><span>            cpu    = <span class="tok-str">"2"</span></span></span>
+<span class="ln"><span class="line-num">13</span><span>            memory = <span class="tok-str">"1024Mi"</span></span></span>
+<span class="ln"><span class="line-num">14</span><span>          '}</span></span>
+<span class="ln"><span class="line-num">15</span><span>        '}</span></span>
+<span class="ln"><span class="line-num">16</span><span>      '}</span></span>
+<span class="ln"><span class="line-num">17</span><span>    '}</span></span>
+<span class="ln"><span class="line-num">18</span><span>  '}</span></span>
+<span class="ln"><span class="line-num">19</span><span>'}</span></span></code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORKSPACE ================= -->
+<section class="section section-alt" id="workspace">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow"><span class="material-symbols-rounded">space_dashboard</span>Build Anything Workspace</span>
+      <h2 class="section-title">One Workspace. <span class="gradient-text">Entire Product.</span></h2>
+      <p class="section-subtitle">
+        Files, components, database, APIs, agents, tests, and deployment — all live,
+        all controlled by natural language.
+      </p>
+    </div>
+
+    <div class="workspace reveal">
+      <div class="workspace-bar">
+        <span class="terminal-dot red"></span>
+        <span class="terminal-dot yellow"></span>
+        <span class="terminal-dot green"></span>
+        <div class="workspace-url">
+          <span class="material-symbols-rounded">lock</span>
+          app.roldley.pro/projects/farm-market
+        </div>
+      </div>
+      <div class="workspace-body">
+        <div class="workspace-sidebar">
+          <div class="ws-sidebar-label">Project</div>
+          <div class="ws-nav-item active"><span class="material-symbols-rounded">dashboard</span>Overview</div>
+          <div class="ws-nav-item"><span class="material-symbols-rounded">folder</span>Files</div>
+          <div class="ws-nav-item"><span class="material-symbols-rounded">view_quilt</span>Components</div>
+          <div class="ws-nav-item"><span class="material-symbols-rounded">database</span>Database</div>
+          <div class="ws-nav-item"><span class="material-symbols-rounded">api</span>APIs</div>
+          <div class="ws-nav-item"><span class="material-symbols-rounded">groups</span>Agents</div>
+          <div class="ws-nav-item"><span class="material-symbols-rounded">science</span>Tests</div>
+          <div class="ws-nav-item"><span class="material-symbols-rounded">cloud_upload</span>Deployment</div>
+        </div>
+        <div class="workspace-main">
+          <div class="ws-main-header">
+            <h3 class="ws-main-title">Farm Market Kenya — Live Preview</h3>
+            <span class="ws-status-pill"><span class="pulse-dot"></span>Build Passing</span>
+          </div>
+          <div class="ws-cards">
+            <div class="ws-card">
+              <div class="ws-card-label">API Latency</div>
+              <div class="ws-card-value">142ms</div>
+              <span class="ws-card-trend trend-up"><span class="material-symbols-rounded">trending_down</span>18% faster</span>
+            </div>
+            <div class="ws-card">
+              <div class="ws-card-label">Test Coverage</div>
+              <div class="ws-card-value">96.4%</div>
+              <span class="ws-card-trend trend-up"><span class="material-symbols-rounded">trending_up</span>+2.1%</span>
+            </div>
+            <div class="ws-card">
+              <div class="ws-card-label">Active Agents</div>
+              <div class="ws-card-value">8</div>
+              <span class="ws-card-trend trend-down"><span class="material-symbols-rounded">remove</span>steady</span>
+            </div>
+          </div>
+          <div class="ws-chart">
+            <div class="ws-chart-title">Deploys & Requests — Last 10 Builds</div>
+            <div class="chart-bars">
+              <div class="chart-bar" title="Build 1"></div>
+              <div class="chart-bar" title="Build 2"></div>
+              <div class="chart-bar" title="Build 3"></div>
+              <div class="chart-bar" title="Build 4"></div>
+              <div class="chart-bar" title="Build 5"></div>
+              <div class="chart-bar" title="Build 6"></div>
+              <div class="chart-bar" title="Build 7"></div>
+              <div class="chart-bar" title="Build 8"></div>
+              <div class="chart-bar" title="Build 9"></div>
+              <div class="chart-bar" title="Build 10"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEVELS ================= -->
+<section class="section" id="levels">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow"><span class="material-symbols-rounded">trending_up</span>Autonomy Levels</span>
+      <h2 class="section-title">You Choose How <span class="gradient-text">Autonomous</span> Roldley Gets</h2>
+      <p class="section-subtitle">From helpful assistant to a fully autonomous AI organization.</p>
+    </div>
+
+    <div class="levels-grid">
+      <div class="level-card reveal">
+        <div class="level-num">1</div>
+        <h4>Assistant</h4>
+        <p>Roldley suggests solutions and explains approaches. You stay in full control.</p>
+        <span class="level-tag">Suggest</span>
+      </div>
+      <div class="level-card reveal reveal-delay-1">
+        <div class="level-num">2</div>
+        <h4>Coder</h4>
+        <p>Roldley writes code, edits files, and generates functions on your behalf.</p>
+        <span class="level-tag">Write</span>
+      </div>
+      <div class="level-card reveal reveal-delay-2">
+        <div class="level-num">3</div>
+        <h4>Builder</h4>
+        <p>Roldley creates complete applications — frontend, backend, database, and more.</p>
+        <span class="level-tag">Create</span>
+      </div>
+      <div class="level-card reveal reveal-delay-3">
+        <div class="level-num">4</div>
+        <h4>Autonomous Builder</h4>
+        <p>Roldley builds, tests, and repairs applications in self-correcting loops.</p>
+        <span class="level-tag">Self-Correct</span>
+      </div>
+      <div class="level-card highlight reveal reveal-delay-4">
+        <div class="level-num">5</div>
+        <h4>Autonomous Organization</h4>
+        <p>Multiple agents independently coordinate development and operations under your defined permissions.</p>
+        <span class="level-tag">Pro Mode</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SAFETY ================= -->
+<section class="section section-alt" id="safety">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow"><span class="material-symbols-rounded">security</span>Human-in-the-Loop</span>
+      <h2 class="section-title">Powerful, <span class="gradient-text">But Never Reckless</span></h2>
+      <p class="section-subtitle">
+        Autonomy is graduated. Low-risk actions flow freely; high-risk actions always
+        require your explicit authorization.
+      </p>
+    </div>
+
+    <div class="safety-layout">
+      <div class="safety-card reveal">
+        <div class="risk-header">
+          <span class="risk-badge risk-low">Low Risk</span>
+          <span class="material-symbols-rounded" style="color:var(--accent-success)">check_circle</span>
+        </div>
+        <h3>AI Acts Automatically</h3>
+        <ul class="safety-list sl-green">
+          <li><span class="material-symbols-rounded">done</span>Code formatting & linting</li>
+          <li><span class="material-symbols-rounded">done</span>Running unit tests</li>
+          <li><span class="material-symbols-rounded">done</span>Writing documentation</li>
+          <li><span class="material-symbols-rounded">done</span>Static code analysis</li>
+          <li><span class="material-symbols-rounded">done</span>Local builds in sandbox</li>
+        </ul>
+      </div>
+      <div class="safety-card reveal reveal-delay-1">
+        <div class="risk-header">
+          <span class="risk-badge risk-medium">Medium Risk</span>
+          <span class="material-symbols-rounded" style="color:var(--accent-warning)">error</span>
+        </div>
+        <h3>AI Requests Approval</h3>
+        <ul class="safety-list sl-amber">
+          <li><span class="material-symbols-rounded">schedule</span>Database migrations</li>
+          <li><span class="material-symbols-rounded">schedule</span>Dependency changes</li>
+          <li><span class="material-symbols-rounded">schedule</span>Public API changes</li>
+          <li><span class="material-symbols-rounded">schedule</span>Merging to main branch</li>
+          <li><span class="material-symbols-rounded">schedule</span>New third-party integrations</li>
+        </ul>
+      </div>
+      <div class="safety-card reveal reveal-delay-2">
+        <div class="risk-header">
+          <span class="risk-badge risk-high">High Risk</span>
+          <span class="material-symbols-rounded" style="color:var(--accent-danger)">gpp_bad</span>
+        </div>
+        <h3>Explicit Authorization Required</h3>
+        <ul class="safety-list sl-red">
+          <li><span class="material-symbols-rounded">block</span>Production deployment</li>
+          <li><span class="material-symbols-rounded">block</span>Destructive database operations</li>
+          <li><span class="material-symbols-rounded">block</span>Financial transactions</li>
+          <li><span class="material-symbols-rounded">block</span>Infrastructure deletion</li>
+          <li><span class="material-symbols-rounded">block</span>Security-sensitive changes</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow"><span class="material-symbols-rounded">payments</span>Pricing</span>
+      <h2 class="section-title">Plans for Every <span class="gradient-text">Stage of Building</span></h2>
+      <p class="section-subtitle">Start free. Scale when your ideas do.</p>
+    </div>
+
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <h3 class="price-name">Free</h3>
+        <p class="price-desc">Perfect for exploring what autonomous building feels like.</p>
+        <div class="price-amount">$0<span>/mo</span></div>
+        <div class="price-period">Forever free</div>
+        <ul class="price-features">
+          <li><span class="material-symbols-rounded">check</span>3 active projects</li>
+          <li><span class="material-symbols-rounded">check</span>Basic AI coding</li>
+          <li><span class="material-symbols-rounded">check</span>Standard generation</li>
+          <li><span class="material-symbols-rounded">check</span>Community support</li>
+          <li class="na"><span class="material-symbols-rounded">close</span>Autonomous debugging</li>
+          <li class="na"><span class="material-symbols-rounded">close</span>Deployment tools</li>
+        </ul>
+        <a href="#home" class="btn btn-ghost">Start Free</a>
+      </div>
+
+      <div class="price-card featured reveal reveal-delay-1">
+        <span class="price-flag">Most Popular</span>
+        <h3 class="price-name">Pro</h3>
+        <p class="price-desc">The full autonomous engine for serious builders.</p>
+        <div class="price-amount">$29<span>/mo</span></div>
+        <div class="price-period">Billed monthly</div>
+        <ul class="price-features">
+          <li><span class="material-symbols-rounded">check</span>Unlimited projects</li>
+          <li><span class="material-symbols-rounded">check</span>All 12 AI agents</li>
+          <li><span class="material-symbols-rounded">check</span>Autonomous debugging</li>
+          <li><span class="material-symbols-rounded">check</span>Full-stack generation</li>
+          <li><span class="material-symbols-rounded">check</span>7-layer automated testing</li>
+          <li><span class="material-symbols-rounded">check</span>One-click deployment</li>
+        </ul>
+        <a href="#home" class="btn btn-primary btn-glow">Go Pro</a>
+      </div>
+
+      <div class="price-card reveal reveal-delay-2">
+        <h3 class="price-name">Business</h3>
+        <p class="price-desc">Collaboration and control for growing teams.</p>
+        <div class="price-amount">$99<span>/mo</span></div>
+        <div class="price-period">Per organization</div>
+        <ul class="price-features">
+          <li><span class="material-symbols-rounded">check</span>Everything in Pro</li>
+          <li><span class="material-symbols-rounded">check</span>Team collaboration</li>
+          <li><span class="material-symbols-rounded">check</span>Organization memory</li>
+          <li><span class="material-symbols-rounded">check</span>Advanced security</li>
+          <li><span class="material-symbols-rounded">check</span>Enterprise integrations</li>
+          <li><span class="material-symbols-rounded">check</span>Priority support</li>
+        </ul>
+        <a href="#home" class="btn btn-ghost">Choose Business</a>
+      </div>
+
+      <div class="price-card reveal reveal-delay-3">
+        <h3 class="price-name">Enterprise</h3>
+        <p class="price-desc">Private infrastructure with full governance.</p>
+        <div class="price-amount">Custom</div>
+        <div class="price-period">Talk to sales</div>
+        <ul class="price-features">
+          <li><span class="material-symbols-rounded">check</span>Everything in Business</li>
+          <li><span class="material-symbols-rounded">check</span>Private infrastructure</li>
+          <li><span class="material-symbols-rounded">check</span>Custom models</li>
+          <li><span class="material-symbols-rounded">check</span>SSO & audit controls</li>
+          <li><span class="material-symbols-rounded">check</span>Dedicated environments</li>
+          <li><span class="material-symbols-rounded">check</span>24/7 enterprise support</li>
+        </ul>
+        <a href="#home" class="btn btn-ghost">Contact Sales</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ROADMAP ================= -->
+<section class="section section-alt" id="roadmap">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow"><span class="material-symbols-rounded">map</span>Roadmap</span>
+      <h2 class="section-title">The Path to a <span class="gradient-text">Universal Creation Platform</span></h2>
+      <p class="section-subtitle">Five phases. One destination: from imagination to reality.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 1 — Available Now</div>
+        <h3>AI Coding</h3>
+        <p>The foundation: code generation, intelligent file editing, full repository understanding, and AI-powered debugging across 40+ languages.</p>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Code Generation</span>
+          <span class="timeline-tag">Repo Understanding</span>
+          <span class="timeline-tag">Debugging</span>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 2 — In Progress</div>
+        <h3>AI Application Builder</h3>
+        <p>Complete application creation: UI generation, database generation, APIs, automated testing, and one-click deployment pipelines.</p>
+        <div class="timeline-tags">
+          <span class="timeline-tag">UI Generation</span>
+          <span class="timeline-tag">Databases</span>
+          <span class="timeline-tag">APIs</span>
+          <span class="timeline-tag">Deployment</span>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 3 — Coming Soon</div>
+        <h3>Autonomous Engineering</h3>
+        <p>Multi-agent orchestration, self-debugging loops, autonomous testing, and hands-off infrastructure management.</p>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Multi-Agent</span>
+          <span class="timeline-tag">Self-Healing</span>
+          <span class="timeline-tag">Infrastructure</span>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 4 — Future</div>
+        <h3>AI Product Organization</h3>
+        <p>Beyond code: business planning, market research, product management, analytics, and operational automation — a full AI company-in-a-box.</p>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Business Planning</span>
+          <span class="timeline-tag">Research</span>
+          <span class="timeline-tag">Operations</span>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-phase">Phase 5 — The Vision</div>
+        <h3>Universal Creation Platform</h3>
+        <p>Software, AI, hardware, robotics, engineering, scientific computing, and simulations — any digital or physical concept, brought to life from a description.</p>
+        <div class="timeline-tags">
+          <span class="timeline-tag">Hardware</span>
+          <span class="timeline-tag">Robotics</span>
+          <span class="timeline-tag">Simulations</span>
+          <span class="timeline-tag">Everything</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="section" style="padding-bottom:0;">
+  <div class="container">
+    <div class="cta-section reveal">
+      <h2>From Imagination to Reality</h2>
+      <p>
+        Today: "I have an idea, but I need developers, designers, engineers, and months of work."
+        With Roldley Pro: "I have an idea." That's the whole sentence.
+      </p>
+      <a href="#home" class="cta-btn">
+        <span class="material-symbols-rounded">auto_awesome</span>
+        Start Building with Roldley Pro
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="nav-logo">
+          <div class="logo-mark"><span class="material-symbols-rounded">auto_awesome</span></div>
+          <span>Roldley<span class="pro-badge">Pro</span></span>
+        </a>
+        <p>
+          The autonomous AI creation engine. You provide the intention — Roldley provides the engineering.
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="X / Twitter"><span class="material-symbols-rounded">alternate_email</span></a>
+          <a href="#" aria-label="GitHub"><span class="material-symbols-rounded">code</span></a>
+          <a href="#" aria-label="LinkedIn"><span class="material-symbols-rounded">work</span></a>
+          <a href="#" aria-label="YouTube"><span class="material-symbols-rounded">play_circle</span></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#agents">AI Agents</a></li>
+          <li><a href="#workspace">Workspace</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Documentation</a></li>
+          <li><a href="#">API Reference</a></li>
+          <li><a href="#">Agent Marketplace</a></li>
+          <li><a href="#">Community</a></li>
+          <li><a href="#">Changelog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#safety">Safety</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Roldley Pro. From imagination to reality.</span>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <span class="material-symbols-rounded">arrow_upward</span>
+</button>
+
+<script>
+/* ============================================================
+   ROLDLEY PRO — INTERACTION SCRIPTS
+   ============================================================ */
+
+(function () {
+  'use strict';
+
+  /* ---------------- THEME TOGGLE ---------------- */
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const THEME_KEY = 'roldley-theme';
+
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+  }
+
+  function initTheme() {
+    let saved = null;
+    try { saved = localStorage.getItem(THEME_KEY); } catch (e) {}
+    if (saved === 'light' || saved === 'dark') {
+      applyTheme(saved);
+    } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      applyTheme('dark');
+    } else {
+      applyTheme('light');
+    }
+  }
+
+  themeToggle.addEventListener('click', function () {
+    const current = root.getAttribute('data-theme');
+    applyTheme(current === 'dark' ? 'light' : 'dark');
+  });
+
+  // Respect system theme changes if user hasn't manually chosen
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+    let saved = null;
+    try { saved = localStorage.getItem(THEME_KEY); } catch (err) {}
+    if (!saved) applyTheme(e.matches ? 'dark' : 'light');
+  });
+
+  initTheme();
+
+  /* ---------------- NAV: SCROLL STATE ---------------- */
+  const nav = document.getElementById('nav');
+  const scrollTopBtn = document.getElementById('scrollTop');
+
+  function onScroll() {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 10);
+    scrollTopBtn.classList.toggle('visible', y > 600);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  scrollTopBtn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  /* ---------------- MOBILE NAV ---------------- */
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+
+  hamburger.addEventListener('click', function () {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+  });
+
+  mobileNav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      hamburger.classList.remove('open');
+      mobileNav.classList.remove('open');
+    });
+  });
+
+  /* ---------------- ACTIVE NAV LINK (scroll spy) ---------------- */
+  const sections = document.querySelectorAll('section[id], header[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function updateActiveLink() {
+    let currentId = '';
+    const scrollPos = window.scrollY + 120;
+
+    sections.forEach(function (sec) {
+      if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+        currentId = sec.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(function (l) {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + currentId);
+    });
+    mobileLinks.forEach(function (l) {
+      l.classList.toggle('active', l.getAttribute('href') === '#' + currentId);
+    });
+  }
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
+
+  /* ---------------- CODE TABS ---------------- */
+  const codeTabs = document.querySelectorAll('.code-tab');
+  const codeContents = document.querySelectorAll('.code-content');
+
+  codeTabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      codeTabs.forEach(function (t) { t.classList.remove('active'); });
+      codeContents.forEach(function (c) { c.classList.remove('active'); });
+      tab.classList.add('active');
+      const target = document.getElementById('tab-' + tab.dataset.tab);
+      if (target) target.classList.add('active');
+    });
+  });
+
+  /* ---------------- WORKSPACE SIDEBAR (demo interaction) ---------------- */
+  const wsItems = document.querySelectorAll('.ws-nav-item');
+  wsItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      wsItems.forEach(function (i) { i.classList.remove('active'); });
+      item.classList.add('active');
+    });
+  });
+
+  /* ---------------- SCROLL REVEAL ---------------- */
+  const revealObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    revealObserver.observe(el);
+  });
+
+  /* ---------------- HERO COUNTER ANIMATION ---------------- */
+  const counters = document.querySelectorAll('[data-count]');
+  const counterObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.count, 10);
+      const suffix = el.dataset.suffix || '';
+      const duration = 1400;
+      const start = performance.now();
+
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(function (c) { counterObserver.observe(c); });
+
+  /* ---------------- TERMINAL TYPE LOOP (subtle) ---------------- */
+  const prompts = [
+    '"Build a multiplayer racing game with leaderboards."',
+    '"Create an AI CRM for small businesses."',
+    '"Design a smart irrigation system with soil sensors."',
+    '"Build a learning platform with live classes."'
+  ];
+  const userInputEl = document.querySelector('.terminal-user-input');
+  let promptIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function typeLoop() {
+    const text = prompts[promptIndex];
+    if (!deleting) {
+      charIndex++;
+      if (charIndex >= text.length) {
+        deleting = true;
+        setTimeout(typeLoop, 3200);
+        userInputEl.textContent = text;
+        return;
+      }
+    } else {
+      charIndex--;
+      if (charIndex <= 0) {
+        deleting = false;
+        promptIndex = (promptIndex + 1) % prompts.length;
+      }
+    }
+    userInputEl.textContent = text.slice(0, charIndex) || '\u00A0';
+    setTimeout(typeLoop, deleting ? 22 : 45);
+  }
+  setTimeout(typeLoop, 4000);
+
+  /* ---------------- SMOOTH ANCHOR OFFSET ---------------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+    anchor.addEventListener('click', function (e) {
+      const id = anchor.getAttribute('href');
+      if (id.length <= 1) return;
+      const target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
+  /* ---------------- RANDOM CHART BAR REGENERATION ---------------- */
+  const chartBars = document.querySelectorAll('.chart-bar');
+  setInterval(function () {
+    chartBars.forEach(function (bar) {
+      bar.style.height = (30 + Math.random() * 70) + '%';
+    });
+  }, 5000);
+
+})();
+</script>
+</body>
+</html>
